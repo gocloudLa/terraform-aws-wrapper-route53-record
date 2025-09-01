@@ -1,0 +1,8 @@
+title: "Complete Example"
+description: "This example demonstrates the configuration of a Route53 module with various DNS record types including A, MX, TXT, and CNAME records."
+main_purpose: "The main purpose is to configure a Route53 DNS setup with multiple record types for a domain."
+key_features:
+  - "**A Record**: Configures an A record with a single IP address and a TTL of 30 seconds."
+  - "**Mx Record**: Configures an MX record with multiple mail exchange servers and a TTL of 300 seconds."
+  - "**Txt Record**: Configures a TXT record with multiple verification strings and a TTL of 300 seconds."
+  - "**Cname Record**: Configures a CNAME record pointing to 'sendgrid.net' with a TTL of 300 seconds."

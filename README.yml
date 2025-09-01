@@ -1,0 +1,42 @@
+module_name: Terraform Route53 DNS Module
+module_description: The Terraform wrapper for Route53 simplifies the configuration of the DNS service in the AWS cloud. This wrapper functions as a predefined template, facilitating the creation and management of Route53 by handling all the technical details.
+module_badges:
+  - url: "https://github.com/gocloudLa/terraform-aws-wrapper-route53-record/releases/latest"
+    image: "https://img.shields.io/github/v/release/gocloudLa/terraform-aws-wrapper-route53-record.svg?style=for-the-badge"
+    alt: "Latest Release"
+  - url: ""
+    image: "https://img.shields.io/github/last-commit/gocloudLa/terraform-aws-wrapper-route53-record.svg?style=for-the-badge"
+    alt: "Last Commit"
+  - url: "https://registry.terraform.io/modules/gocloudLa/wrapper-route53-record/aws"
+    image: "https://img.shields.io/badge/Terraform-Registry-7B42BC?style=for-the-badge&logo=terraform&logoColor=white"
+    alt: "Terraform Registry"
+quick_start: |
+  ```hcl
+  route53_parameters = {
+          "${local.zone_public}" = {
+          private_zone = false
+          records = [
+              {
+              name = ""
+              type = "MX"
+              ttl = "300"
+              records = [
+                  "1 ASPMX.L.GOOGLE.COM",
+                  "5 ALT1.ASPMX.L.GOOGLE.COM",
+                  "5 ALT2.ASPMX.L.GOOGLE.COM",
+                  "10 ALT3.ASPMX.L.GOOGLE.COM",
+                  "10 ALT4.ASPMX.L.GOOGLE.COM"
+              ]
+              }
+          ]
+          }
+      }
+  ```
+features: []
+important_notes: ""
+input_table: |
+  | private_zone | Whether Route53 zone is private or public | `bool` | `data.aws_route53_zone.route53[each.key].private_zone` | no |
+  | records | List of objects of DNS records | `any` | `[]` | no |
+  | zone_id | ID of DNS zone | `number` | `data.aws_route53_zone.route53[each.key].id` | no |
+  | zone_name | Name of DNS zone | `string` | `data.aws_route53_zone.route53[each.key].name` | no |
+  | records_jsonencoded | List of map of DNS records (stored as jsonencoded string, for terragrunt) | `string` | `null` | no |
