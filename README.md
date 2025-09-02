@@ -47,6 +47,15 @@ route53_parameters = {
 
 
 
+## 📑 Inputs
+| Name                | Description                                                               | Type     | Default                                                | Required |
+| ------------------- | ------------------------------------------------------------------------- | -------- | ------------------------------------------------------ | -------- |
+| private_zone        | Whether Route53 zone is private or public                                 | `bool`   | `data.aws_route53_zone.route53[each.key].private_zone` | no       |
+| records             | List of objects of DNS records                                            | `any`    | `[]`                                                   | no       |
+| zone_id             | ID of DNS zone                                                            | `number` | `data.aws_route53_zone.route53[each.key].id`           | no       |
+| zone_name           | Name of DNS zone                                                          | `string` | `data.aws_route53_zone.route53[each.key].name`         | no       |
+| records_jsonencoded | List of map of DNS records (stored as jsonencoded string, for terragrunt) | `string` | `null`                                                 | no       |
+
 
 
 
