@@ -15,31 +15,31 @@ The Terraform wrapper for Route53 simplifies the configuration of the DNS servic
 ### 🔗 External Modules
 | Name | Version |
 |------|------:|
-| [terraform-aws-modules/route53/aws](https://github.com/terraform-aws-modules/route53-aws) | 5.0.0 |
+| <a href="https://github.com/terraform-aws-modules/terraform-aws-route53" target="_blank">terraform-aws-modules/route53/aws</a> | 5.0.0 |
 
 
 
 ## 🚀 Quick Start
 ```hcl
 route53_parameters = {
-        "${local.zone_public}" = {
-        private_zone = false
+  "${local.zone_public}" = {
+    private_zone = false
+    records = [
+      {
+        name    = ""
+        type    = "MX"
+        ttl     = "300"
         records = [
-            {
-            name = ""
-            type = "MX"
-            ttl = "300"
-            records = [
-                "1 ASPMX.L.GOOGLE.COM",
-                "5 ALT1.ASPMX.L.GOOGLE.COM",
-                "5 ALT2.ASPMX.L.GOOGLE.COM",
-                "10 ALT3.ASPMX.L.GOOGLE.COM",
-                "10 ALT4.ASPMX.L.GOOGLE.COM"
-            ]
-            }
+          "1 ASPMX.L.GOOGLE.COM",
+          "5 ALT1.ASPMX.L.GOOGLE.COM",
+          "5 ALT2.ASPMX.L.GOOGLE.COM",
+          "10 ALT3.ASPMX.L.GOOGLE.COM",
+          "10 ALT4.ASPMX.L.GOOGLE.COM"
         ]
-        }
-    }
+      }
+    ]
+  }
+}
 ```
 
 
@@ -48,13 +48,13 @@ route53_parameters = {
 
 
 ## 📑 Inputs
-| Name                | Description                                                               | Type     | Default                                                | Required |
-| ------------------- | ------------------------------------------------------------------------- | -------- | ------------------------------------------------------ | -------- |
-| private_zone        | Whether Route53 zone is private or public                                 | `bool`   | `data.aws_route53_zone.route53[each.key].private_zone` | no       |
-| records             | List of objects of DNS records                                            | `any`    | `[]`                                                   | no       |
-| zone_id             | ID of DNS zone                                                            | `number` | `data.aws_route53_zone.route53[each.key].id`           | no       |
-| zone_name           | Name of DNS zone                                                          | `string` | `data.aws_route53_zone.route53[each.key].name`         | no       |
-| records_jsonencoded | List of map of DNS records (stored as jsonencoded string, for terragrunt) | `string` | `null`                                                 | no       |
+| Name                | Description                                                  | Type     | Default                                                | Required |
+| ------------------- | ------------------------------------------------------------ | -------- | ------------------------------------------------------ | -------- |
+| private_zone        | Whether Route53 zone is private or public                    | `bool`   | `data.aws_route53_zone.route53[each.key].private_zone` | no       |
+| records             | List of objects of DNS records                               | `list`   | `[]`                                                   | no       |
+| zone_id             | ID of DNS zone                                               | `string` | `data.aws_route53_zone.route53[each.key].id`           | no       |
+| zone_name           | Name of DNS zone (currently commented out in code)           | `string` | `data.aws_route53_zone.route53[each.key].name`         | no       |
+| records_jsonencoded | List of map of DNS records (currently commented out in code) | `string` | `null`                                                 | no       |
 
 
 
