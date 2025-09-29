@@ -1,6 +1,6 @@
 module "route53_records" {
   source  = "terraform-aws-modules/route53/aws//modules/records"
-  version = "5.0.0"
+  version = "6.1.0"
 
   for_each = var.route53_parameters
 
