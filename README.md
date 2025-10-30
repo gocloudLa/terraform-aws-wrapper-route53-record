@@ -12,12 +12,6 @@ The Terraform wrapper for Route53 simplifies the configuration of the DNS servic
 
 
 
-### 🔗 External Modules
-| Name | Version |
-|------|------:|
-| <a href="https://github.com/terraform-aws-modules/terraform-aws-route53" target="_blank">terraform-aws-modules/route53/aws</a> | 5.0.0 |
-
-
 
 ## 🚀 Quick Start
 ```hcl
