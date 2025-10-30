@@ -1,5 +1,5 @@
 module "route53_records" {
-  source  = "./modules/route53_records"
+  source = "./modules/route53_records"
 
   for_each = var.route53_parameters
 
