@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/gocloudLa/terraform-aws-wrapper-route53-record/compare/v1.0.0...v1.0.1) (2025-11-25)
+
+
+### Bug Fixes
+
+* **module:** change external module to local ([#4](https://github.com/gocloudLa/terraform-aws-wrapper-route53-record/issues/4)) ([db2ef4f](https://github.com/gocloudLa/terraform-aws-wrapper-route53-record/commit/db2ef4f2f9c229bf39ab36948d0c423895847dda))
+
 ## 1.0.0 (2025-09-05)
 
 
